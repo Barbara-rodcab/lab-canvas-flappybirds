@@ -1,12 +1,12 @@
-class Pipebottom {
-    constructor(ctx) {
+class Pipeup {
+    constructor(ctx, y) {
 		this.ctx = ctx;
-		this.x = 200;
-		this.y = 350;
+		this.x = 90;
+		this.y = y;
 		this.width = 80;
 		this.height = this.ctx.canvas.height;
 		this.img = new Image();
-		this.img.src = "./images/obstacle_bottom.png";
+		this.img.src = "./images/obstacle_top.png";
 		this.isReady = false;
 		this.img.onload = () => {
 			this.isReady = true;

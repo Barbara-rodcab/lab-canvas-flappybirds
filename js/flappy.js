@@ -41,7 +41,7 @@ class Flappy {
 		this.ySpeed += this.gravity;
 
         if (this.movements.up) {
-			this.y = this.ySpeed; // no consigo que no inicie en el top del canvas
+			this.y = this.ySpeed; // no consigo que no inicie en el top
 		} else if (this.movements.down) {
 			this.y = this.ySpeed;
 		}
@@ -54,7 +54,6 @@ class Flappy {
         if (event.keyCode === 32) {
 			this.movements.up = statusDow;
             game.flappy.ySpeed = -0.5;
-            game.flappy.gravity = 1;
 }
 }
 }

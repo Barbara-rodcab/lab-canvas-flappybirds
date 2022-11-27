@@ -7,7 +7,7 @@ class Game {
 
         this.flappy = new Flappy (this.ctx, 100 , 100);
         this.pipeBottom = new Pipebottom (this.ctx, 0, 0);
-        
+        this.pipeUp = new Pipeup (this.ctx, 0, 0);
         this.bg = new Background(this.ctx);
         this.intervalId = null;
         this.tick = 0;    
@@ -27,6 +27,7 @@ draw (){
     this.bg.draw();
     this.flappy.draw();
     this.pipeBottom.draw();
+    this.pipeUp.draw();
    
 
     this.tick++;
@@ -36,6 +37,7 @@ move() {
     this.bg.move();
     this.flappy.move();
     this.pipeBottom.move();
+    this.pipeUp.move();
     
     
 }
@@ -45,11 +47,13 @@ clear() {
 }
 
 
-addObstacle() {
+/*addObstacle() {
     const randomWidth = Math.random() * 100 + 50;
     const randomX = Math.random() * (this.canvas.width - randomWidth);
     const pipeBottom = new Pipebottom (this.ctx, randomX, - this.flappy.height, randomWidth);
     this.pipeBottom.push(pipeBottom);
     console.log(this.pipeBottom);
 }
+}*/
+
 }
