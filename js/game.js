@@ -5,8 +5,9 @@ class Game {
         this.wi = this.ctx.canvas.width; 
         this.he = this.ctx.canvas.height;
         this.intervalId = null;
+        this.flappy = new Flappy (this.ctx, 100 , 100);
         this.bg = new Background(this.ctx);
-        //this.player = new Player (this.ctx, 100 , 100)
+        
 		
 }
 
@@ -20,11 +21,12 @@ start() {
 
 draw (){
     this.bg.draw();
-    //this.player.draw();
+    this.flappy.draw();
 }
 
 move() {
     this.bg.move();
+    this.flappy.move();
 }
 
 clear() {
