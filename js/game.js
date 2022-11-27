@@ -4,24 +4,28 @@ class Game {
         this.ctx = this.canvas.getContext("2d"); 
         this.wi = this.ctx.canvas.width; 
         this.he = this.ctx.canvas.height;
-        this.intervalId = null;
+
         this.flappy = new Flappy (this.ctx, 100 , 100);
         this.bg = new Background(this.ctx);
-        
+        this.intervalId = null;
+        this.tick = 0;    
 		
 }
 
 start() {
     this.intervalId = setInterval(() => {
         this.clear();
-        this.draw ();
         this.move();
+        this.draw ();
+        
     } , 1000/60 )
 }
 
 draw (){
     this.bg.draw();
+    console.log ("entro")
     this.flappy.draw();
+    this.tick++;
 }
 
 move() {
