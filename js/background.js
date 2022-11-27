@@ -13,7 +13,7 @@ class Background {
 			this.isReady = true;
 		};
 
-        this.speed = 5
+        this.speed = 0.5
 	}
 
 	draw() {
