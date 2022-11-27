@@ -13,7 +13,7 @@ class Game {
         this.bottomArr= [];
         this.upArr = [];
         this.tick = 0;    
-		
+		this.tickUp = 0;
 }
 
 start() {
@@ -28,19 +28,24 @@ start() {
 draw (){
     this.bg.draw();
     this.flappy.draw();
-    console.log ("down")
     this.bottomArr.forEach((pipeBottom) => { //aañadido y ya no me pinta el pipe
         pipeBottom.draw();
     });
+
+    console.log ("up")
     this.upArr.forEach((pipeUp) => {  //aañadido y ya no me pinta el pipe
         pipeUp.draw();
     });
 
     
     this.tick++;
+    this.tickUp++;
 
     if (this.tick % 90 === 0) {
         this.addPipes();
+    };
+    if (this.tickUp % 90 === 0) {
+        this.addPipesUp();
     }
 
     }
@@ -68,16 +73,24 @@ addPipes() {
     const randomPipe = Math.floor(Math.random() * (-minSpace + this.ctx.canvas.height) - this.ctx.canvas.height)
 
     const downPipe = new Pipebottom (this.ctx, this.ctx.canvas.width, randomPipe);
-    const upPipe = new Pipeup (this.ctx, this.ctx.canvas.width, randomPipe);
-    
-    const upY = randomPipe + upPipe.height + minSpace;
-    const  uppPipe = new Pipeup (this.ctx, this.ctx.canvas.width, upY);
 
     const bottomY = randomPipe + downPipe.height + minSpace;
     const bottomPipe = new Pipebottom (this.ctx, this.ctx.canvas.width, bottomY);
 
-    this.upArr.push(uppPipe);
     this.bottomArr.push(bottomPipe);
+} 
+
+addPipesUp() {
+    const minSpaceUp = this.flappy.height * 4;
+
+    const randomPipeUp = Math.floor(Math.random() * (-minSpaceUp + this.ctx.canvas.height) - this.ctx.canvas.height)
+
+    const upPipe = new Pipeup (this.ctx, this.ctx.canvas.width, randomPipeUp);
+    
+    const upY = randomPipeUp + upPipe.height + minSpaceUp;
+    const  uppPipe = new Pipeup (this.ctx, this.ctx.canvas.width, upY);
+   console.log ("upArr")
+    this.upArr.push(uppPipe);
 }
 
 }
