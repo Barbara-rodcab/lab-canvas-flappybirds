@@ -61,17 +61,22 @@ move() {
 clear() {
     this.ctx.clearRect(0, 0, this.wi, this.he);
 }
+
 addPipes() {
     const minSpace = this.flappy.height * 2;
 
-    const topY = Math.floor(Math.random() * (-minSpace + this.ctx.canvas.height) - this.ctx.canvas.height)
-    console.log('topY: ', topY);
+    const randomPipe = Math.floor(Math.random() * (-minSpace + this.ctx.canvas.height) - this.ctx.canvas.height)
 
-    const topPipe = new Pipeup (this.ctx, this.ctx.canvas.width, topY);
+    const downPipe = new Pipebottom (this.ctx, this.ctx.canvas.width, randomPipe);
+    const upPipe = new Pipeup (this.ctx, this.ctx.canvas.width, randomPipe);
+    
+    const upY = randomPipe + upPipe.height + minSpace;
+    const  uppPipe = new Pipeup (this.ctx, this.ctx.canvas.width, upY);
 
-    const bottomY = topY + topPipe.height + minSpace;
+    const bottomY = randomPipe + downPipe.height + minSpace;
     const bottomPipe = new Pipebottom (this.ctx, this.ctx.canvas.width, bottomY);
 
+    this.upArr.push(uppPipe);
     this.bottomArr.push(bottomPipe);
 }
 
