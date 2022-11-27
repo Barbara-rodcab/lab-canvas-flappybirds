@@ -1,9 +1,9 @@
 class Pipebottom {
     constructor(ctx) {
 		this.ctx = ctx;
-		this.x = 200;
-		this.y = 350;
-		this.width = 80;
+		this.x = 300;
+		this.y = 300;
+		this.width = 55;
 		this.height = this.ctx.canvas.height;
 		this.img = new Image();
 		this.img.src = "./images/obstacle_bottom.png";

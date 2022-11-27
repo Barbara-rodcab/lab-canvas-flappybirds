@@ -1,14 +1,14 @@
 class Pipeup {
     constructor(ctx, y) {
 		this.ctx = ctx;
-		this.x = 90;
+		this.x = 100;
 		this.y = y;
-		this.width = 80;
-		this.height = this.ctx.canvas.height;
+		this.width = 55;
 		this.img = new Image();
 		this.img.src = "./images/obstacle_top.png";
 		this.isReady = false;
 		this.img.onload = () => {
+            this.height = this.width * this.img.height / this.img.width;
 			this.isReady = true;
 		this.vx = 2  
 		this.directions = {
