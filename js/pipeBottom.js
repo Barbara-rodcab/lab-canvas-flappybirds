@@ -1,5 +1,5 @@
 class Pipebottom {
-    constructor(ctx) {
+    constructor(ctx,x,y) {
 		this.ctx = ctx;
 		this.x = 300;
 		this.y = 300;
@@ -19,6 +19,7 @@ class Pipebottom {
 	draw (){
 		if (this.isReady) {
             this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+
 		}
 			
 	}

@@ -19,6 +19,7 @@ class Pipeup {
 	draw (){
 		if (this.isReady) {
             this.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+            
 		}
 			
 	}
